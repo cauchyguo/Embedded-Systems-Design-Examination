@@ -1,6 +1,5 @@
-###Embedded-Systems-Design-Examination
-嵌入式系统考试，背就完事！
-+ 嵌入式系统与桌面通用系统的区别
+#<div style="text-align: center;">嵌入式系统考试</div>
+####<div style="text-align: right">背就完事！</div>
 + **嵌入式系统与桌面通用系统的区别**
 
 嵌入式处理器的基本特征**
