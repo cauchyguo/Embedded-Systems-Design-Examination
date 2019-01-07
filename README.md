@@ -83,6 +83,15 @@
 
 + **ARM处理器的 7 种工作模式** :point_left:
 
++ **ALinux 发展的 5 大支柱** :point_left:
+    - Unix操作系统
+    - Minix操作系统
+    - GNU计划
+    - POSIX标准
+    - Internet
+    
+    
+
 + **NOR型闪存的特点** :point_left:
     - 具有独立的地址线、数据线，支持快速随机访问，容量
 较小；
