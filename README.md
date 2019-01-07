@@ -147,7 +147,7 @@ Flash写入内容时，需要先擦除对应的存储区间，这种擦除是以
     - 次设备号，标识使用同一设备驱动程序的不同硬件设备
 
 + 驱动代码
-    - ARM汇编实现20的阶乘  
+### ARM汇编实现20的阶乘  
 --------------  
 ```
 .global _start
@@ -158,7 +158,7 @@ Mov R9,#0 @高32位初始化为0
 Sub R0,R8,#1 @初始化计数器
 Loop：
 MOV R1,R9 @暂存高位值
-UMULL R8,R9,R0,R8 @[R9:R8]=R0*R8
+UMULL R8,R9,R0,R8 @[R9:R8]=R0*R8 @结果的低32位存于R8，高32位存于R9
 MLA R9,R1,R0,R9 @R9=R1*R0+R9
 SUBS R0，R0，#1 @计数器递减
 BNE Loop @计数器不为0时继续循环
@@ -166,5 +166,44 @@ BNE Loop @计数器不为0时继续循环
 B Stop
 .end @文件结束
 ```
---------------
+    
+### ARM汇编实现四个字位单位的复制(R0 to R1)，不足4字则以字位单位复制
+
+```
+.global _start
+.equ NUM,18
+.text  
+.arm  
+_start:  
+        LDR     R0,  = SRC
+        LDR     R1,  = DST
+        MOV     R2,  # NUM
+        MOV     SP,  # 0X9000
+        MOVS    R3, R2, LSR #2
+        BEQ     COPY_WORDS
+        STMFD   SP!, {R5 - R8}
+COPY_4WORD:
+        LDMIA   R0!, {R5 - R8}
+        STMIA   R1!, {R5 - R8}
+        SUBS    R3, R3, #1
+        BEQ     COPY_4WORD
+        LDMFD   SP!, {R5 - R8}
+COPY_WORDS:
+        ANDS    R2, R2 #3
+        BEQ     STOP
+COPY_WORD:
+        LDR     R3, [R0], #4
+        STR     R3, [R1], #4
+        SUBS    R2, R2, #1
+        BEQ     COPY_WORD
+STOP:
+        B       STOP
+.ltorg
+SRC:
+    .long 1,2,3,4,5,6,7,8,9,0xa,0xb,0xc,0xd,0xe,0xf,0x10,0x11,0x12  
+DST:
+    .long 0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0
+.end
+```
+-------------- 
 @[cauchyguo](https://github.com/cauchyguo/) :+1:郭老师:ox::beer:
