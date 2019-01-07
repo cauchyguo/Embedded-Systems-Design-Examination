@@ -93,6 +93,27 @@
 + **Linux程序开发过程** :point_left:  
 ![Linux程序开发流程图](https://github.com/cauchyguo/Embedded-Systems-Design-Examination/blob/master/img/Linux_LCT.png "Linux程序开发流程图")
 
++ **嵌入式系统启动流程** :point_left: 
+    - 硬件加电
+    - 引导加载程序
+        - Boot代码、Bootloader等
+    - 操作系统内核，如Linux 内核
+        - 根据特定的目标嵌入式硬件系统，定制的内核及启动参数
+    - 加载文件系统
+        - 包括根文件系统以及建立于Flash内存设备上的文件系统
+    - 运行用户程序
+        - 用户编写的完成特定功能的程序
+        - 一些用户程序运行在一个嵌入式图形用户界面（GUI）上，常用
+    的嵌入式GUI包括：MicroWindows 和MiniGuI等
+
++ **Boot Loader 的 stage1 与 stage2 主要步骤** :point_left: 
+    - Boot Loader 的 stage1 
+        - 硬件设备初始化、为加载 Boot Loader 的 stage2 准备 RAM 空间、拷贝 Boot Loader 的 stage2 到 RAM 空间中、设置好堆栈、跳转到 stage2 的 C 入口点
+    - Boot Loader 的 stage2  
+        - 初始化本阶段要使用到的硬件设备、检测系统内存映射(memory map)、将 kernel 映像和根文件系统映像从 flash 上读到RAM 空间中、为内核设置启动参数、调用内核
+
++ ~~**ARM-Linux 模块机制** :point_left:~~
+
 + **NOR型闪存的特点** :point_left:
     - 具有独立的地址线、数据线，支持快速随机访问，容量
 较小；
