@@ -150,6 +150,7 @@ Flash写入内容时，需要先擦除对应的存储区间，这种擦除是以
 ### ARM汇编实现20的阶乘  
 --------------  
 ```
+//BEQ：数据跳转指令，标志寄存器中Z标志位等于0时跳转到BEQ后面的标签处。
 .global _start
 .text
 _start:
@@ -176,10 +177,10 @@ _start:
         LDR     R0,  = SRC
         LDR     R1,  = DST
         MOV     R2,  # NUM
-        MOV     SP,  # 0X9000
-        MOVS    R3, R2, LSR #2
+        MOV     SP,  # 0X9000 @SP为栈顶指针
+        MOVS    R3, R2, LSR #2 @获得块拷贝(COPY_4WORD)次数
         BEQ     COPY_WORDS
-        STMFD   SP!, {R5 - R8}
+        STMFD   SP!, {R5 - R8} @将R5 - R8压入栈堆(保护现场)
 COPY_4WORD:
         LDMIA   R0!, {R5 - R8}
         STMIA   R1!, {R5 - R8}
@@ -187,7 +188,7 @@ COPY_4WORD:
         BEQ     COPY_4WORD
         LDMFD   SP!, {R5 - R8}
 COPY_WORDS:
-        ANDS    R2, R2 #3
+        ANDS    R2, R2 #3 @按位与运算，得到COPY_WORD的迭代次数
         BEQ     STOP
 COPY_WORD:
         LDR     R3, [R0], #4
