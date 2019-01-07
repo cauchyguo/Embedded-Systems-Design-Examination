@@ -145,5 +145,26 @@ Flash写入内容时，需要先擦除对应的存储区间，这种擦除是以
 + **设备文件和设备号**
     - 主设备号，标识设备的种类，使用的驱动程序
     - 次设备号，标识使用同一设备驱动程序的不同硬件设备
-    
+
++ 驱动代码
+    - ARM汇编实现20的阶乘  
+--------------  
+```
+.global _start
+.text
+_start:
+Mov R8, #20 @低32位初始化为20
+Mov R9,#0 @高32位初始化为0
+Sub R0,R8,#1 @初始化计数器
+Loop：
+MOV R1,R9 @暂存高位值
+UMULL R8,R9,R0,R8 @[R9:R8]=R0*R8
+MLA R9,R1,R0,R9 @R9=R1*R0+R9
+SUBS R0，R0，#1 @计数器递减
+BNE Loop @计数器不为0时继续循环
+.Stop:
+B Stop
+.end @文件结束
+```
+--------------
 @[cauchyguo](https://github.com/cauchyguo/) :+1:郭老师:ox::beer:
