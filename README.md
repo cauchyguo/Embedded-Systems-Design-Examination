@@ -166,9 +166,7 @@ BNE Loop @计数器不为0时继续循环
 B Stop
 .end @文件结束
 ```
-    
 ### ARM汇编实现四个字位单位的复制(R0 to R1)，不足4字则以字位单位复制
-
 ```
 .global _start
 .equ NUM,18
