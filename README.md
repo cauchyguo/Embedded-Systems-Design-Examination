@@ -91,7 +91,7 @@
     - Internet
     
 + **Linux程序开发过程** :point_left:  
-![Linux程序开发流程图](https://github.com/cauchyguo/Embedded-Systems-Design-Examination/img/Linux_LCT.png Linux程序开发流程图)
+![Linux程序开发流程图](https://github.com/cauchyguo/Embedded-Systems-Design-Examination/img/Linux_LCT.png "Linux程序开发流程图")
 
 + **NOR型闪存的特点** :point_left:
     - 具有独立的地址线、数据线，支持快速随机访问，容量
