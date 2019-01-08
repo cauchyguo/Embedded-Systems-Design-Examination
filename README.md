@@ -103,6 +103,15 @@
     - POSIX标准
     - Internet
     
++ **中断处理过程** :point_left:
+    - 硬件部分
+        1.复制CPSR到SPSR_<mode>
+        2.设置正确的CPSR位
+        3.切换到<mode>
+        4.保存返回地址到LR_<mode>
+        5.设置PC跳转到相应的异常向量表入口
+    - 软件部分
+    
 + **Linux程序开发过程** :point_left:  
 ![Linux程序开发流程图](https://github.com/cauchyguo/Embedded-Systems-Design-Examination/blob/master/img/Linux_LCT.png "Linux程序开发流程图")
 
