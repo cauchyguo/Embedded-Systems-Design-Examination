@@ -105,12 +105,17 @@
     
 + **中断处理过程** :point_left:
     - 硬件部分
-        1.复制CPSR到SPSR_<mode>
-        2.设置正确的CPSR位
-        3.切换到<mode>
-        4.保存返回地址到LR_<mode>
-        5.设置PC跳转到相应的异常向量表入口
+        1. 复制CPSR到SPSR_<mode>
+        2. 设置正确的CPSR位
+        3. 切换到<mode>
+        4. 保存返回地址到LR_<mode>
+        5. 设置PC跳转到相应的异常向量表入口
     - 软件部分
+        1. 把SPSR和LR压栈
+        2. 把中断服务程序的寄存器压栈
+        3. 开中断，允许嵌套中断
+        4. 中断服务程序执行完后，恢复寄存器
+        5. 弹出SPSR和PC，恢复执行
     
 + **Linux程序开发过程** :point_left:  
 ![Linux程序开发流程图](https://github.com/cauchyguo/Embedded-Systems-Design-Examination/blob/master/img/Linux_LCT.png "Linux程序开发流程图")
