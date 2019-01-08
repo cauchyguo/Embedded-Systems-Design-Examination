@@ -53,7 +53,7 @@
  | *QNX* |<li >高可靠性</li><li>高安全性</li><li >开放源码，软件丰富</li><li >优秀的开发工具</li><li> 完善的网络通信和文件管理机制</li>|广泛地嵌入到汽车、智能机器、智能仪器仪表、机顶盒、通讯设备、 PDA、黑莓操作系统等应用中|  
  | *uC/OS* |<li >开源、结构小、可剥夺、实时的</li><li>不支持时间片轮转调度法,并非“并发多道程序”</li><li >系统可靠性不保障</li><li >对图形应用的支持较弱| 主要应用于控制类等地段应用中，如:照相机行业、医 疗检测仪器、音响设施 |  
 
-+ **嵌入式软件系统的体系结构** :point_left:  
++ **嵌入式软件系统的体系结构**   
 ![嵌入式软件系统的体系结构图](https://github.com/cauchyguo/Embedded-Systems-Design-Examination/blob/master/img/soft_art.png "Linux程序开发流程图")
 
 
@@ -93,6 +93,8 @@
 + ~~**冯. 诺依曼结构和哈佛结构的特点及区别**~~
 
 + **ARM处理器的 7 种工作模式** :point_left:
+![ARM处理器的7种模式](https://github.com/cauchyguo/Embedded-Systems-Design-Examination/blob/master/img/work_mode.png "ARM处理器的7种模式图片")
+
 
 + **ALinux 发展的 5 大支柱** :point_left:
     - Unix操作系统
