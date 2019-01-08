@@ -252,7 +252,7 @@ COPY_4WORD:
         STMIA   R1!, {R5 - R8}
         SUBS    R3, R3, #1
         BEQ     COPY_4WORD
-        LDMFD   SP!, {R5 - R8}
+        LDMFD   SP!, {R5 - R8} @我的理解是通过SP栈指针对R5-R8寄存器的一个备份，R5-R8用作临时接收4字的临时寄存器
 COPY_WORDS:
         ANDS    R2, R2 #3 @按位与运算，得到COPY_WORD的迭代次数
         BEQ     STOP
